@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonC;
     private Button buttonCalculate;
 
+    private String tempOld;
+    private String tempNew;
+    private int res;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,33 +56,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
 
             case R.id.button1:
-                textView.setText(textView.getText() + "1");
+                textView.setText(textView.getText() + getString(R.string.number_1));
                 break;
             case R.id.button2:
-                textView.setText(textView.getText() + "2");
+                textView.setText(textView.getText() + getString(R.string.number_2));
                 break;
             case R.id.button3:
-                textView.setText(textView.getText() + "3");
+                textView.setText(textView.getText() + getString(R.string.number_3));
                 break;
             case R.id.button4:
-                textView.setText(textView.getText() + "4");
+                textView.setText(textView.getText() + getString(R.string.number_4));
                 break;
             case R.id.button5:
-                textView.setText(textView.getText() + "5");
+                textView.setText(textView.getText() + getString(R.string.number_5));
                 break;
             case R.id.button6:
-                textView.setText(textView.getText() + "6");
+                textView.setText(textView.getText() + getString(R.string.number_6));
                 break;
             case R.id.buttonPlus:
-                // TODO: 08.09.17
+                tempOld = textView.getText().toString();
+                textView.setText("");
                 break;
             case R.id.buttonC:
-                textView.setText("0");
+                textView.setText("");
                 break;
             case R.id.buttonCalc:
-                // TODO: 08.09.17
+                tempNew = textView.getText().toString();
+                res = Integer.parseInt(tempOld) + Integer.parseInt(tempNew);
+                textView.setText(String.valueOf(res));
                 break;
         }
     }
-
 }
